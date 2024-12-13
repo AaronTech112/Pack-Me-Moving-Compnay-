@@ -166,13 +166,76 @@
             padding: 2rem;
             text-align: center;
         }
+        /* General styles for the stats section */
         
         .stats-section {
             background: linear-gradient(rgba(50, 205, 50, 0.9), rgba(50, 205, 50, 0.9)), url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-attachment: fixed;
             background-size: cover;
+            background-position: center;
             color: white;
             padding: 4rem 2rem;
+            overflow: hidden;
+            /* Prevents accidental overflow */
+        }
+        /* Grid container */
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* Responsive grid */
+            gap: 2rem;
+            /* Space between grid items */
+            max-width: 1200px;
+            /* Optional: restrict section width */
+            margin: 0 auto;
+            /* Center the grid within the section */
+            padding: 0 1rem;
+            /* Add padding to prevent grid from touching edges */
+        }
+        /* Individual stat item */
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            /* Adds a subtle background for readability */
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Stat numbers */
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+            /* Gold color for emphasis */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            /* Subtle text shadow */
+        }
+        /* Stat labels */
+        
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #FFFFFF;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 768px) {
+            .stats-section {
+                padding: 3rem 1rem;
+                /* Reduce padding for smaller screens */
+            }
+            .stat-number {
+                font-size: 2rem;
+                /* Slightly smaller numbers */
+            }
+            .stat-label {
+                font-size: 0.9rem;
+                /* Adjust label size */
+            }
         }
         
         .stats-grid {
