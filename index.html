@@ -182,12 +182,12 @@
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            /* Responsive grid */
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            /* Smaller minimum width for boxes */
+            gap: 1rem;
             /* Space between grid items */
-            max-width: 1200px;
-            /* Optional: restrict section width */
+            max-width: 1000px;
+            /* Restrict section width */
             margin: 0 auto;
             /* Center the grid within the section */
             padding: 0 1rem;
@@ -199,42 +199,72 @@
             text-align: center;
             background: rgba(0, 0, 0, 0.6);
             /* Adds a subtle background for readability */
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0.8rem;
+            /* Smaller padding for smaller boxes */
+            border-radius: 6px;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
         }
         /* Stat numbers */
         
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            /* Smaller font size for numbers */
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #FFD700;
             /* Gold color for emphasis */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             /* Subtle text shadow */
         }
         /* Stat labels */
         
         .stat-label {
-            font-size: 1rem;
+            font-size: 0.85rem;
+            /* Smaller label size */
             font-weight: 500;
             color: #FFFFFF;
         }
-        /* Responsive adjustments */
+        /* Responsive adjustments for small devices */
         
         @media (max-width: 768px) {
             .stats-section {
-                padding: 3rem 1rem;
+                padding: 2rem 1rem;
                 /* Reduce padding for smaller screens */
             }
+            .stats-grid {
+                gap: 0.5rem;
+                /* Reduce gap between grid items */
+            }
+            .stat-item {
+                padding: 0.5rem;
+                /* Further reduce padding in stat items */
+            }
             .stat-number {
-                font-size: 2rem;
-                /* Slightly smaller numbers */
+                font-size: 1.5rem;
+                /* Smaller number size on small screens */
             }
             .stat-label {
-                font-size: 0.9rem;
+                font-size: 0.75rem;
                 /* Adjust label size */
+            }
+        }
+        /* Additional scaling for very small screens */
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                /* Smaller box width for extra small screens */
+            }
+            .stat-item {
+                padding: 0.4rem;
+            }
+            .stat-number {
+                font-size: 1.2rem;
+                /* Even smaller number size */
+            }
+            .stat-label {
+                font-size: 0.7rem;
+                /* Smaller label size */
             }
         }
         
