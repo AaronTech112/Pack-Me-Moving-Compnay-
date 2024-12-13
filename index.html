@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyMove Nigeria - Professional Moving Services in Abuja</title>
+    <title>PackMe Moving Company - Professional Moving & Home Improvement Services in Abuja</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
          :root {
@@ -20,6 +20,56 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Initial state before animation */
+        
+        .section {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 0.9s ease-out;
+        }
+        /* Active state when element is visible */
+        
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Initial state for sliding animations */
+        
+        .hero-content {
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideRight 1s ease-out forwards;
+        }
+        
+        .booking-form-container {
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideLeft 1s ease-out forwards;
+        }
+        /* Keyframes for sliding from left to right */
+        
+        @keyframes slideRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Keyframes for sliding from right to left */
+        
+        @keyframes slideLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
         body {
@@ -694,7 +744,7 @@
         <div class="hero-container">
             <div class="hero-content" data-aos="fade-right">
                 <h1 class="hero-title">Relocation Made Easy</h1>
-                <p class="hero-subtitle">Professional Moving & Storage Services in Abuja</p>
+                <p class="hero-subtitle">Professional Moving & Home Improvement Services in Abuja</p>
                 <p class="hero-text">We take the stress of moving out of you! Experience seamless relocation with our professional team.</p>
                 <div class="hero-badges">
                     <div class="badge">
@@ -755,7 +805,7 @@
                             </div>
                         </div>
                         <button type="submit" class="submit-btn">
-                            <span>Get Free Quote</span>
+                            <span>Book Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </form>
@@ -1609,6 +1659,24 @@
     <footer>
         <p>&copy; 2024 PackMeMovingCompany Nigeria. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".section");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                        observer.unobserve(entry.target); // Optional: Remove observer after animation
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 
     <script src="js/navbar.js"></script>
     <script src="js/ld.js"></script>
