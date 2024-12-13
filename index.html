@@ -166,7 +166,7 @@
             padding: 2rem;
             text-align: center;
         }
-        /* General styles for the stats section */
+        /* Stats section container */
         
         .stats-section {
             background: linear-gradient(rgba(50, 205, 50, 0.9), rgba(50, 205, 50, 0.9)), url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
@@ -174,41 +174,44 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 4rem 2rem;
+            padding: 3rem 1rem;
             overflow: hidden;
-            /* Prevents accidental overflow */
         }
-        /* Grid container */
+        /* Flexbox container */
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            /* Smaller minimum width for boxes */
+        .stats-flex {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows items to wrap to the next row */
+            justify-content: center;
+            /* Centers items horizontally */
             gap: 1rem;
-            /* Space between grid items */
-            max-width: 1000px;
-            /* Restrict section width */
+            /* Space between items */
+            max-width: 1200px;
             margin: 0 auto;
-            /* Center the grid within the section */
+            /* Center the entire flex container */
             padding: 0 1rem;
-            /* Add padding to prevent grid from touching edges */
+            /* Prevents items from touching the edges */
         }
         /* Individual stat item */
         
         .stat-item {
+            flex: 1 1 150px;
+            /* Allows items to shrink/grow and sets a minimum width */
+            max-width: 200px;
+            /* Optional: Prevents items from getting too wide */
             text-align: center;
             background: rgba(0, 0, 0, 0.6);
-            /* Adds a subtle background for readability */
-            padding: 0.8rem;
-            /* Smaller padding for smaller boxes */
-            border-radius: 6px;
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            /* Semi-transparent background */
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
         }
         /* Stat numbers */
         
         .stat-number {
-            font-size: 2rem;
-            /* Smaller font size for numbers */
+            font-size: 1.8rem;
+            /* Adjusted for better scaling */
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #FFD700;
@@ -219,72 +222,36 @@
         /* Stat labels */
         
         .stat-label {
-            font-size: 0.85rem;
-            /* Smaller label size */
-            font-weight: 500;
+            font-size: 0.9rem;
             color: #FFFFFF;
         }
-        /* Responsive adjustments for small devices */
+        /* Responsive adjustments */
         
         @media (max-width: 768px) {
-            .stats-section {
-                padding: 2rem 1rem;
-                /* Reduce padding for smaller screens */
-            }
-            .stats-grid {
-                gap: 0.5rem;
-                /* Reduce gap between grid items */
-            }
             .stat-item {
-                padding: 0.5rem;
-                /* Further reduce padding in stat items */
+                flex: 1 1 120px;
+                /* Adjusts minimum size for smaller screens */
+                padding: 0.8rem;
             }
             .stat-number {
                 font-size: 1.5rem;
-                /* Smaller number size on small screens */
             }
             .stat-label {
-                font-size: 0.75rem;
-                /* Adjust label size */
+                font-size: 0.8rem;
             }
         }
-        /* Additional scaling for very small screens */
         
         @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                /* Smaller box width for extra small screens */
-            }
             .stat-item {
-                padding: 0.4rem;
+                flex: 1 1 100px;
+                /* Further reduction for very small screens */
             }
             .stat-number {
                 font-size: 1.2rem;
-                /* Even smaller number size */
             }
             .stat-label {
                 font-size: 0.7rem;
-                /* Smaller label size */
             }
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .stat-item {
-            padding: 2rem;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
         }
         
         .process-section {
@@ -1179,7 +1146,7 @@
     </section>
 
     <section class="stats-section">
-        <div class="stats-grid">
+        <div class="stats-flex">
             <div class="stat-item" data-aos="fade-up">
                 <div class="stat-number" data-count="500">100+</div>
                 <div class="stat-label">Successful Moves</div>
@@ -1197,8 +1164,8 @@
                 <div class="stat-label">Client Satisfaction %</div>
             </div>
         </div>
-
     </section>
+
 
     <!-- Why Us Section -->
     <section class="section why-us" id="why-us">
