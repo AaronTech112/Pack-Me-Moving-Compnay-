@@ -7,8 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentIndex = 0;
     let intervalId;
-    const itemsPerView = window.innerWidth <= 768 ? 4 : 6;
-    const totalSlides = Math.ceil(stateItems.length / itemsPerView);
+    const itemsPerView = window.innerWidth <= 768 ? 3 : 5;
+    const totalSlides = Math.max(1, stateItems.length - (itemsPerView - 1));
+
+    // Clone items for infinite scroll
+    const cloneItems = () => {
+        const firstClones = Array.from(stateItems).slice(0, itemsPerView)
+            .map(item => item.cloneNode(true));
+        const lastClones = Array.from(stateItems).slice(-itemsPerView)
+            .map(item => item.cloneNode(true));
+        
+        firstClones.forEach(clone => statesWrapper.appendChild(clone));
+        lastClones.forEach(clone => statesWrapper.insertBefore(clone, statesWrapper.firstChild));
+    };
+
+    cloneItems();
 
     // Create dots
     for (let i = 0; i < totalSlides; i++) {
@@ -20,28 +33,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const dots = document.querySelectorAll('.dot');
 
-    function updateCarousel(index) {
-        const offset = -(index * (100 / itemsPerView));
-        statesWrapper.style.transform = `translateX(${offset}%)`;
+    // Set initial position
+    statesWrapper.style.transform = `translateX(-${itemsPerView * 100}px)`;
+
+    function updateCarousel(index, transition = true) {
+        if (transition) {
+            statesWrapper.style.transition = 'transform 0.5s ease';
+        } else {
+            statesWrapper.style.transition = 'none';
+        }
+
+        const slideWidth = stateItems[0].offsetWidth + parseFloat(getComputedStyle(stateItems[0]).marginRight);
+        const offset = -((index + itemsPerView) * slideWidth);
+        statesWrapper.style.transform = `translateX(${offset}px)`;
         
         dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
+            dot.classList.toggle('active', i === index % totalSlides);
         });
     }
 
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
+        currentIndex++;
         updateCarousel(currentIndex);
+
+        if (currentIndex >= totalSlides) {
+            setTimeout(() => {
+                currentIndex = 0;
+                updateCarousel(currentIndex, false);
+            }, 500);
+        }
     }
 
     function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        currentIndex--;
         updateCarousel(currentIndex);
+
+        if (currentIndex < 0) {
+            setTimeout(() => {
+                currentIndex = totalSlides - 1;
+                updateCarousel(currentIndex, false);
+            }, 500);
+        }
     }
 
     // Auto-slide functionality
     function startAutoSlide() {
-        intervalId = setInterval(nextSlide, 2000); // Slides every 3 seconds
+        intervalId = setInterval(nextSlide, 3000);
     }
 
     function stopAutoSlide() {
@@ -97,6 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        updateCarousel(currentIndex, false);
+    });
 
     // Start auto-sliding
     startAutoSlide();
