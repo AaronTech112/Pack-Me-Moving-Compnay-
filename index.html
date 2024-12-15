@@ -1132,6 +1132,177 @@
         }
     </style>
 
+    <!-- state css -->
+    <style>
+        .states-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .states-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+            padding: 1rem;
+        }
+        
+        .state-item {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            width: calc(100% / 5);
+            /* Show 5 items at once */
+        }
+        
+        .state-circle {
+            width: 100px;
+            /* Smaller circle size */
+            height: 100px;
+            /* Smaller circle size */
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .state-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .state-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .state-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .prev-btn {
+            left: 10px;
+        }
+        
+        .next-btn {
+            right: 10px;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background-color: #333;
+        }
+        /* Mobile Styles */
+        
+        @media screen and (max-width: 768px) {
+            .state-item {
+                width: calc(100% / 3);
+                /* Show 3 items at once on mobile */
+            }
+            .state-circle {
+                width: 80px;
+                /* Even smaller on mobile */
+                height: 80px;
+            }
+            .state-name {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- Operating States Section -->
+    <section class="section states" id="states">
+        <h2 class="section-title">States We Presently Operate</h2>
+        <div class="states-container">
+            <button class="carousel-btn prev-btn">&lt;</button>
+            <div class="states-wrapper">
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/1.png" alt="Abuja">
+                    </div>
+                    <p class="state-name">Abuja</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/2.png" alt="Lagos">
+                    </div>
+                    <p class="state-name">Lagos</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/3.png" alt="Port Harcourt">
+                    </div>
+                    <p class="state-name">PH City</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/4.png" alt="Delta">
+                    </div>
+                    <p class="state-name">Delta</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/mark.jpg" alt="Makurdi">
+                    </div>
+                    <p class="state-name">Makurdi</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/kadu.jpg" alt="Kaduna">
+                    </div>
+                    <p class="state-name">Kaduna</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/5.png" alt="Kano">
+                    </div>
+                    <p class="state-name">Kano</p>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn">&gt;</button>
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
     <!-- Services Section -->
     <section class="section services" id="services">
         <h2 class="section-title">Our Services</h2>
@@ -1432,7 +1603,7 @@
 
     <!-- Why Us Section -->
     <section class="section why-us" id="why-us">
-        <h2 class="section-title">Why Choose Us</h2>
+        <h2 class="section-title">Why Choose Us ?</h2>
         <div class="features-grid">
             <div class="feature-item">
                 <i class="fas fa-check-circle feature-icon"></i>
@@ -1873,7 +2044,7 @@
             sections.forEach(section => observer.observe(section));
         });
     </script>
-
+    <script src="js/city.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/ld.js"></script>
     <script src="js/move.js"></script>
