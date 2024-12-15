@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentIndex = 0;
     let intervalId;
-    const itemsPerView = window.innerWidth <= 768 ? 3 : 5;
+    const itemsPerView = window.innerWidth <= 768 ? 4 : 6;
     const totalSlides = Math.ceil(stateItems.length / itemsPerView);
 
     // Create dots
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Auto-slide functionality
     function startAutoSlide() {
-        intervalId = setInterval(nextSlide, 1000); // Slides every 3 seconds
+        intervalId = setInterval(nextSlide, 2000); // Slides every 3 seconds
     }
 
     function stopAutoSlide() {

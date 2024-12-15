@@ -1134,6 +1134,8 @@
 
     <!-- state css -->
     <style>
+        /* Update these CSS rules */
+        
         .states-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1147,6 +1149,7 @@
             gap: 1.5rem;
             transition: transform 0.5s ease;
             padding: 1rem;
+            width: 100%;
         }
         
         .state-item {
@@ -1155,9 +1158,12 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            width: calc(100% / 5);
-            /* Show 5 items at once */
+            width: calc((100% - (1.5rem * 4)) / 5);
+            /* Adjust width accounting for gaps */
+            min-width: 100px;
+            /* Ensure minimum width */
         }
+        /* Rest of the CSS remains the same */
         
         .state-circle {
             width: 100px;
@@ -1462,7 +1468,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item" data-aos="zoom-in">
+                <!-- <div class="gallery-item" data-aos="zoom-in">
                     <img src="img/img7.jpg" alt="Moving Service" class="gallery-img">
                     <div class="gallery-overlay">
                         <div class="gallery-text">
@@ -1470,7 +1476,7 @@
                             <p>Professional packing and moving services</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Add more gallery items as needed -->
 
             </div>
