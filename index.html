@@ -1306,6 +1306,81 @@
         </div>
     </section>
 
+
+    <!-- about style -->
+    <style>
+        .about-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .about-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Responsive Design */
+        
+        @media screen and (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            .about-image {
+                order: -1;
+                /* Makes image appear before text on mobile */
+            }
+        }
+    </style>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Moving Partner</h3>
+                    <p>Pack-Me Moving Company is a full-service moving and home maintenance company based in Abuja, Nigeria. We specialize in providing seamless and stress-free moving services for both residential and commercial clients. Our services include
+                        local and long-distance moving, packing and unpacking, and specialized moving for delicate and valuable items.</p>
+
+                    <p>In addition to our core moving services, we offer a comprehensive range of home maintenance solutions, including cleaning, plumbing, electrical works, decluttering, installation, and general home maintenance. Our goal is to be your
+                        one-stop solution for all moving and home care needs, ensuring a smooth transition into your new space and maintaining the comfort and functionality of your home.</p>
+
+                    <p>At Pack-Me Moving Company, we are committed to delivering excellence through professionalism, reliability, and customer-focused service. We take pride in making your moving experience as easy and convenient as possible.</p>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="img/img3.jpg" alt="Pack-Me Moving Company Team" class="about-img">
+            </div>
+        </div>
+    </section>
+
     <!-- Moving Process Section -->
     <section class="process-section">
         <h2 class="section-title">Our Moving Process</h2>
@@ -1336,7 +1411,7 @@
     <section class="stats-section">
         <div class="stats-flex">
             <div class="stat-item" data-aos="fade-up">
-                <div class="stat-number" data-count="500">100+</div>
+                <div class="stat-number" data-count="500">500+</div>
                 <div class="stat-label">Successful Moves</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
@@ -1348,7 +1423,7 @@
                 <div class="stat-label">Team Members</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-number" data-count="98">98+</div>
+                <div class="stat-number" data-count="500">500+</div>
                 <div class="stat-label">Client Satisfaction %</div>
             </div>
         </div>
