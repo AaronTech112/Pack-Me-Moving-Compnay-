@@ -24,7 +24,7 @@ Service: ${service}%0A
 Message: ${message}`;
 
     // WhatsApp API URL
-    const whatsappURL = `https://api.whatsapp.com/send?phone=2347061662905&text=${whatsappMessage}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=2347082271319&text=${whatsappMessage}`;
 
     // Redirect to WhatsApp
     window.open(whatsappURL, '_blank');
