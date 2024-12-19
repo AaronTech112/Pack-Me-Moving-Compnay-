@@ -1,4 +1,4 @@
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     // Get form values
@@ -16,7 +16,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
 
     // Prepare WhatsApp message
-    const whatsappMessage = `*New Contact Form Submission*%0A
+    const whatsappMessage = `*New Contact Form Submission*%0A%0A
 Name: ${name}%0A
 Email: ${email}%0A
 Phone: ${phone}%0A
@@ -26,52 +26,20 @@ Message: ${message}`;
     // WhatsApp API URL
     const whatsappURL = `https://api.whatsapp.com/send?phone=2347061662905&text=${whatsappMessage}`;
 
-    // Send email using EmailJS (you need to sign up at emailjs.com and include their SDK)
-    // Add EmailJS SDK to your HTML:
-    // <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    // Redirect to WhatsApp
+    window.open(whatsappURL, '_blank');
 
-    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+    // Update button state and reset form
+    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+    submitBtn.style.backgroundColor = '#28a745';
 
-    const emailParams = {
-        to_email: "Packmecompany@gmail.com",
-        from_name: name,
-        from_email: email,
-        phone_number: phone,
-        service_type: service,
-        message: message
-    };
-
-    // Send email
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", emailParams)
-        .then(function(response) {
-            console.log("Email sent successfully!", response);
-
-            // Redirect to WhatsApp
-            window.open(whatsappURL, '_blank');
-
-            // Update button state
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-            submitBtn.style.backgroundColor = '#28a745';
-
-            // Reset form after delay
-            setTimeout(() => {
-                submitBtn.innerHTML = originalContent;
-                submitBtn.style.backgroundColor = '';
-                submitBtn.disabled = false;
-                document.getElementById('contactForm').reset();
-            }, 2000);
-        })
-        .catch(function(error) {
-            console.error("Email sending failed:", error);
-            submitBtn.innerHTML = '<i class="fas fa-times"></i> Error!';
-            submitBtn.style.backgroundColor = '#dc3545';
-
-            setTimeout(() => {
-                submitBtn.innerHTML = originalContent;
-                submitBtn.style.backgroundColor = '';
-                submitBtn.disabled = false;
-            }, 2000);
-        });
+    // Reset form after delay
+    setTimeout(() => {
+        submitBtn.innerHTML = originalContent;
+        submitBtn.style.backgroundColor = '';
+        submitBtn.disabled = false;
+        this.reset();
+    }, 2000);
 });
 
 // Floating label animation
