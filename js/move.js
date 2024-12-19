@@ -1,5 +1,4 @@
-
-document.getElementById('moveForm').addEventListener('submit', function (e) {
+document.getElementById('moveForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const moveFrom = document.getElementById('moveFrom').value;
@@ -13,12 +12,12 @@ document.getElementById('moveForm').addEventListener('submit', function (e) {
     Date: ${moveDate}%0A
     Items: ${moveItems}`;
 
-    window.open(`https://wa.me/2347063430684?text=${message}`, '_blank');
+    window.open(`https://wa.me/2347082271319?text=${message}`, '_blank');
 });
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
