@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackMe Moving Company - Professional Moving & Home Improvement Services in Abuja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+         :root {
+            --primary-color: #32CD32;
+            --secondary-color: #90EE90;
+            --accent-color: #98FB98;
+            --dark-color: #333;
+            --light-color: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Initial state before animation */
+        
+        .section {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 0.9s ease-out;
+        }
+        /* Active state when element is visible */
+        
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Initial state for sliding animations */
+        
+        .hero-content {
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideRight 1s ease-out forwards;
+        }
+        
+        .booking-form-container {
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideLeft 1s ease-out forwards;
+        }
+        /* Keyframes for sliding from left to right */
+        
+        @keyframes slideRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Keyframes for sliding from right to left */
+        
+        @keyframes slideLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        body {
+            line-height: 1.6;
+        }
+        
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .booking-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .submit-btn {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #2ab12a;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .services {
+            background: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .why-us {
+            background: var(--light-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .contact {
+            background: linear-gradient(rgba(50, 205, 50, 0.1), rgba(50, 205, 50, 0.1));
+        }
+        
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 2rem;
+            text-align: center;
+        }
+        /* Stats section container */
+        
+        .stats-section {
+            background: linear-gradient(rgba(50, 205, 50, 0.9), rgba(50, 205, 50, 0.9)), url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 1rem;
+            overflow: hidden;
+        }
+        /* Flexbox container */
+        
+        .stats-flex {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows items to wrap to the next row */
+            justify-content: center;
+            /* Centers items horizontally */
+            gap: 1rem;
+            /* Space between items */
+            max-width: 1200px;
+            margin: 0 auto;
+            /* Center the entire flex container */
+            padding: 0 1rem;
+            /* Prevents items from touching the edges */
+        }
+        /* Individual stat item */
+        
+        .stat-item {
+            flex: 1 1 150px;
+            /* Allows items to shrink/grow and sets a minimum width */
+            max-width: 200px;
+            /* Optional: Prevents items from getting too wide */
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            /* Semi-transparent background */
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        /* Stat numbers */
+        
+        .stat-number {
+            font-size: 1.8rem;
+            /* Adjusted for better scaling */
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+            /* Gold color for emphasis */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            /* Subtle text shadow */
+        }
+        /* Stat labels */
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 768px) {
+            .stat-item {
+                flex: 1 1 120px;
+                /* Adjusts minimum size for smaller screens */
+                padding: 0.8rem;
+            }
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stat-item {
+                flex: 1 1 100px;
+                /* Further reduction for very small screens */
+            }
+            .stat-number {
+                font-size: 1.2rem;
+            }
+            .stat-label {
+                font-size: 0.7rem;
+            }
+        }
+        
+        .process-section {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .testimonials {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .swiper {
+            width: 100%;
+            padding: 3rem 0;
+        }
+        
+        .testimonial-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            text-align: center;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+        }
+        
+        .gallery {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(50, 205, 50, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-text {
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 2rem;
+            transition: background 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #2ab12a;
+        }
+        /* Add these styles to make the numbers more visually appealing */
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-decoration {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .nav-dots {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            opacity: 0.5;
+        }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            right: 100px;
+            transform: translateY(-50%);
+            opacity: 0.6;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2ab12a;
+            transform: translateY(-2px);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 968px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                padding: 80px 2rem 2rem;
+                transition: all 0.3s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-menu {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            .nav-decoration {
+                display: none;
+            }
+        }
+        /* Animation for navbar on scroll */
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .navbar.scroll-animation {
+            animation: slideDown 0.5s ease forwards;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* .hero-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            } */
+        }
+    </style>
+    <!-- Add this in the <head> section -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Add this in the <head> section -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Add this in the <head> section -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Add this in the <head> section -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Add this in the <head> section -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+    <!-- Add this in the <head> section -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Add this in the <head> section -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --font-primary: 'Space Grotesk', sans-serif;
+        }
+        
+        * {
+            font-family: var(--font-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <!-- <span class="logo-text">MoveMate</span> -->
+            </div>
+
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <div class="nav-decoration">
+                    <svg class="nav-dots" width="100" height="100" viewBox="0 0 100 100">
+                    <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="2" fill="var(--primary-color)" opacity="0.3"/>
+                    </pattern>
+                    <rect width="100%" height="100%" fill="url(#dotPattern)"/>
+                </svg>
+                    <svg class="nav-arrow" width="150" height="50" viewBox="0 0 150 50">
+                    <path d="M0,25 C50,25 50,25 75,10 S100,40 150,25" stroke="var(--primary-color)" 
+                          fill="none" stroke-width="2" stroke-dasharray="5,5"/>
+                    <polygon points="145,25 150,25 147.5,30" fill="var(--primary-color)"/>
+                </svg>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a target="_blank" href="https://wa.me/2348060505631" class="nav-btn">Get Quote</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="moving-arrows"></div>
+        <div class="hero-container">
+            <div style="padding-top: 80px;" class="hero-content" data-aos="fade-right">
+                <h1 class="hero-title">Relocation Made Easy</h1>
+                <p class="hero-subtitle">Professional moving and home maintenance services in Abuja</p>
+                <p class="hero-text">We take the stress of moving out of you! Experience seamless relocation with our professional team.</p>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <i class="fas fa-truck"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Safe & Secure</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-star"></i>
+                        <span>Top Rated</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-form-container" data-aos="fade-left">
+                <div class="booking-form">
+                    <h2>Get Your Free Quote</h2>
+                    <div class="form-arrow-decoration"></div>
+                    <form id="moveForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <input type="text" id="moveFrom" placeholder="Moving From" required>
+                            </div>
+                            <div class="form-arrow">
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="fas fa-map-marker"></i>
+                                </div>
+                                <input type="text" id="moveTo" placeholder="Moving To" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                                <input type="date" id="moveDate" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <select id="moveItems" required>
+                                    <option value="">What Are You Moving?</option>
+                                    <option value="home">Home Items</option>
+                                    <option value="office">Office Equipment</option>
+                                    <option value="both">Both Home & Office</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a style="text-decoration: none;" href="https://wa.me/2348060505631" target="_blank"><button type="" class="submit-btn">
+                            <span>Book Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button></a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: url('banner.png') center/cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+        }
+        
+        .moving-arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background: repeating-linear-gradient(45deg, transparent 0, transparent 10px, rgba(255, 255, 255, 0.1) 10px, rgba(255, 255, 255, 0.1) 20px); */
+            animation: moveArrows 20s linear infinite;
+        }
+        
+        @keyframes moveArrows {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
+        }
+        
+        .hero-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .badge i {
+            color: var(--primary-color);
+        }
+        
+        .booking-form-container {
+            position: relative;
+            padding-top: 60px;
+        }
+        
+        .booking-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .booking-form h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+        /* Ensure container alignment */
+        
+        .form-group {
+            flex: 1;
+            position: relative;
+            display: flex;
+            /* Enables better control over alignment */
+            align-items: center;
+            /* Vertically centers the icon */
+        }
+        
+        .input-icon {
+            position: relative;
+            margin-right: 0.8rem;
+            /* Creates space between the icon and the input field */
+            color: var(--primary-color);
+            z-index: 1;
+            font-size: 1rem;
+            /* Ensures icons are appropriately sized */
+        }
+        
+        .form-group input,
+        .form-group select {
+            flex: 1;
+            /* Allows inputs to take the remaining space */
+            padding: 0.8rem 1rem;
+            /* Removes left padding for input since icon is separate */
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+            outline: none;
+        }
+        
+        .form-group input::placeholder {
+            color: #999;
+        }
+        /* Adjustments for date input */
+        
+        .form-group input[type="date"] {
+            padding-right: 1rem;
+        }
+        /* Adjustments for select element */
+        
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 1rem) center;
+            padding-right: 2.5rem;
+        }
+        
+        .form-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            animation: arrowPulse 1.5s infinite;
+        }
+        
+        @keyframes arrowPulse {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #2ab12a;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .hero-content {
+                text-align: center;
+                padding: 1rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-badges {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .booking-form {
+                padding: 1.5rem;
+            }
+            .form-row {
+                flex-direction: column;
+            }
+            .form-arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+            }
+        }
+        /* Additional animations */
+        
+        .booking-form {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-arrow-decoration::before,
+        .form-arrow-decoration::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color) 0%, transparent 100%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .form-arrow-decoration::before {
+            top: -100px;
+            left: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .form-arrow-decoration::after {
+            bottom: -100px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(10px, 10px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+
+    <!-- state css -->
+    <style>
+        /* Update these CSS rules */
+        
+        .states-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .states-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+            padding: 1rem;
+            width: 100%;
+        }
+        
+        .state-item {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            width: calc((100% - (1.5rem * 4)) / 5);
+            /* Adjust width accounting for gaps */
+            min-width: 100px;
+            /* Ensure minimum width */
+        }
+        /* Rest of the CSS remains the same */
+        
+        .state-circle {
+            width: 100px;
+            /* Smaller circle size */
+            height: 100px;
+            /* Smaller circle size */
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .state-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .state-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .state-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .prev-btn {
+            left: 10px;
+        }
+        
+        .next-btn {
+            right: 10px;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background-color: #333;
+        }
+        /* Mobile Styles */
+        
+        @media screen and (max-width: 768px) {
+            .state-item {
+                width: calc(100% / 3);
+                /* Show 3 items at once on mobile */
+            }
+            .state-circle {
+                width: 80px;
+                /* Even smaller on mobile */
+                height: 80px;
+            }
+            .state-name {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- Operating States Section -->
+    <section class="section states" id="states">
+        <h2 class="section-title">States We Presently Operate</h2>
+        <div class="states-container">
+            <button class="carousel-btn prev-btn">&lt;</button>
+            <div class="states-wrapper">
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/1.png" alt="Abuja">
+                    </div>
+                    <p class="state-name">Abuja</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/2.png" alt="Lagos">
+                    </div>
+                    <p class="state-name">Lagos</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/3.png" alt="Port Harcourt">
+                    </div>
+                    <p class="state-name">PH City</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/4.png" alt="Delta">
+                    </div>
+                    <p class="state-name">Delta</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/mark.jpg" alt="Makurdi">
+                    </div>
+                    <p class="state-name">Makurdi</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/kadu.jpg" alt="Kaduna">
+                    </div>
+                    <p class="state-name">Kaduna</p>
+                </div>
+
+                <div class="state-item">
+                    <div class="state-circle">
+                        <img src="img/5.png" alt="Kano">
+                    </div>
+                    <p class="state-name">Kano</p>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn">&gt;</button>
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-truck service-icon"></i>
+                <h3>Relocation Services: Stress-Free Moving for Homes and Offices
+                </h3>
+                <p>Experience stress-free moving with our expert relocation services. Whether within Abuja or beyond, we handle packing, transport, and a smooth transition to your new space.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-broom service-icon"></i>
+                <h3>Comprehensive Cleaning Services for a Spotless Move
+                </h3>
+                <p>Our cleaning services leave your space spotless, whether moving in or out, so you can focus on your move.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-box service-icon"></i>
+                <h3>Expert Organization & Decluttering for Home or Office</h3>
+                <p>Decluttering clears clutter and optimizes your space for a clean, functional environment that boosts productivity and peace of mind.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-warehouse service-icon"></i>
+                <h3>Storage Solutions: Safe and Convenient Space for Your Belongings
+                </h3>
+                <p>Our secure, climate-controlled storage keeps your belongings safe with 24/7 security, offering flexible plans for short- or long-term needs during transitions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Our Work Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <!-- Replace image URLs with your actual business images -->
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img1.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img2.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img3.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="im4.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img5.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img6.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img7.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img9.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img1.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img2.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img3.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img4.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img5.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img6.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="gallery-item" data-aos="zoom-in">
+                    <img src="img/img7.jpg" alt="Moving Service" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>Home Relocation</h3>
+                            <p>Professional packing and moving services</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Add more gallery items as needed -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- about style -->
+    <style>
+        .about-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .about-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Responsive Design */
+        
+        @media screen and (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            .about-image {
+                order: -1;
+                /* Makes image appear before text on mobile */
+            }
+        }
+    </style>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Moving Partner</h3>
+                    <p>Pack-Me Moving Company is a full-service moving and home maintenance company based in Abuja, Nigeria. We specialize in providing seamless and stress-free moving services for both residential and commercial clients. Our services include
+                        local and long-distance moving, packing and unpacking, and specialized moving for delicate and valuable items.</p>
+
+                    <p>In addition to our core moving services, we offer a comprehensive range of home maintenance solutions, including cleaning, plumbing, electrical works, decluttering, installation, and general home maintenance. Our goal is to be your
+                        one-stop solution for all moving and home care needs, ensuring a smooth transition into your new space and maintaining the comfort and functionality of your home.</p>
+
+                    <p>At Pack-Me Moving Company, we are committed to delivering excellence through professionalism, reliability, and customer-focused service. We take pride in making your moving experience as easy and convenient as possible.</p>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="img/img3.jpg" alt="Pack-Me Moving Company Team" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Process Section -->
+    <section class="process-section">
+        <h2 class="section-title">Our Moving Process</h2>
+        <div class="process-grid">
+            <div class="process-card" data-aos="fade-right">
+                <div class="process-number">1</div>
+                <h3>Initial Contact</h3>
+                <p>Reach out to us through our booking form or contact channels for a free quote.</p>
+            </div>
+            <div class="process-card" data-aos="fade-right" data-aos-delay="100">
+                <div class="process-number">2</div>
+                <h3>Assessment</h3>
+                <p>We evaluate your moving needs and provide a detailed plan and quote.</p>
+            </div>
+            <div class="process-card" data-aos="fade-right" data-aos-delay="200">
+                <div class="process-number">3</div>
+                <h3>Packing</h3>
+                <p>Professional packing of your items using quality materials.</p>
+            </div>
+            <div class="process-card" data-aos="fade-right" data-aos-delay="300">
+                <div class="process-number">4</div>
+                <h3>Moving Day</h3>
+                <p>Safe transportation and delivery of your belongings to the new location.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-flex">
+            <div class="stat-item" data-aos="fade-up">
+                <div class="stat-number" data-count="500">500+</div>
+                <div class="stat-label">Successful Moves</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="stat-number" data-count="500">500+</div>
+                <div class="stat-label">Business Clients</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number" data-count="50">49</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number" data-count="500">500+</div>
+                <div class="stat-label">Client Satisfaction %</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Us Section -->
+    <section class="section why-us" id="why-us">
+        <h2 class="section-title">Why Choose Us ?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-check-circle feature-icon"></i>
+                <div>
+                    <h3>Professional Team</h3>
+                    <p>Experienced and trained moving professionals</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <div>
+                    <h3>Safe & Secure</h3>
+                    <p>Your belongings are fully insured during transit</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-clock feature-icon"></i>
+                <div>
+                    <h3>Timely Service</h3>
+                    <p>We value your time and stick to schedules</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-hand-holding-usd feature-icon"></i>
+                <div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Best value for your money guaranteed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add these styles to your existing CSS -->
+    <style>
+        .gallery-section {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(50, 205, 50, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-text {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Lightbox styles */
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Add this at the end of your body tag -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img">
+        </div>
+    </div>
+
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <!-- Map Side -->
+            <div class="map-container" data-aos="fade-right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.692398769622!2d7.479243075018551!3d9.00042569105976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0db93d432ab1%3A0x941a5c549e219324!2sTolse%20Plaza!5e0!3m2!1sen!2sng!4v1734096202076!5m2!1sen!2sng"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            </div>
+
+            <!-- Contact Form Side -->
+            <div class="contact-form-container" data-aos="fade-left">
+                <div class="contact-info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p>+2348060505631</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-content">
+                            <h3>Address</h3>
+                            <p>Suite 29, Tolse plaza, No 4 franca Afegbua crescent, Apo, Abuja, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="info-content">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/2348060505631" class="whatsapp-link">Chat with us</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <a href="https://www.instagram.com/packme.company/" target="_blank" style="text-decoration: none;"> <i class="fab fa-instagram"></i></a>
+                        <div class="info-content">
+                            <a href="https://www.instagram.com/packme.company/" target="_blank" style="text-decoration: none; color: black;">
+                                <h3>Instagram</h3>
+                            </a>
+                            <a href="https://www.instagram.com/packme.company/" target="_blank" class="whatsapp-link">Follow Us</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <a href="https://x.com/packmecompany" target="_blank" style="text-decoration: none;"> <i class="fab fa-x"></i></a>
+                        <div class="info-content">
+                            <a href="https://x.com/packmecompany" target="_blank" style="text-decoration: none; color: black;">
+                                <h3>Twitter</h3>
+                            </a>
+                            <a href="https://x.com/packmecompany" target="_blank" class="whatsapp-link">Follow Us</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <a href="https://web.facebook.com/packmecompany" target="_blank" style="text-decoration: none;"> <i class="fab fa-facebook"></i></a>
+                        <div class="info-content">
+                            <a href="https://web.facebook.com/packmecompany" target="_blank" style="text-decoration: none; color: black;">
+                                <h3>Facebook</h3>
+                            </a>
+                            <a href="https://web.facebook.com/packmecompany" target="_blank" class="whatsapp-link">Follow Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" required>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" required>
+                        <option value="">Select Service</option>
+                        <option value="home">Home Moving</option>
+                        <option value="office">Office Relocation</option>
+                        <option value="storage">Cleaning Service</option>
+                        <option value="other">Other Services</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .contact {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container {
+            height: 100%;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .contact-form-container {
+            padding: 2rem;
+        }
+        
+        .contact-info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .info-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-content p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .whatsapp-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 0 0.5rem;
+            color: #666;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(50, 205, 50, 0.1);
+        }
+        
+        .form-group input:focus+label,
+        .form-group input:valid+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:valid+label {
+            top: 0;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group textarea+label {
+            top: 1rem;
+            transform: none;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #2ab12a;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .map-container {
+                min-height: 300px;
+            }
+            .contact-form-container {
+                padding: 1rem;
+            }
+            .contact-info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 PackMeMovingCompany Nigeria. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".section");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                        observer.unobserve(entry.target); // Optional: Remove observer after animation
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+    <script src="js/city.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/ld.js"></script>
+    <script src="js/move.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/ani.js"></script>
+    <script src="js/count.js"></script>
+
+</body>
+
+</html>
