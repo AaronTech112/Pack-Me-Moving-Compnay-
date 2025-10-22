@@ -12,7 +12,7 @@ document.getElementById('moveForm').addEventListener('submit', function(e) {
     Date: ${moveDate}%0A
     Items: ${moveItems}`;
 
-    window.open(`https://wa.me/2347082271319?text=${message}`, '_blank');
+    window.open(`https://wa.me/2348060505631?text=${message}`, '_blank');
 });
 
 // Smooth scrolling
